@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import CashForm from 'components/cashForm/CashForm';
+import { useState } from 'react';
+import CashRegister from 'components/cashRegister/CashRegister';
+
+const initialDb = [
+  {id: 1, manicure: "mel", income: 20, exit: 30, credit: true}
+]
 
 function App() {
+  const [db, setDb] = useState(initialDb);
+
+  const createData = (data)=>{
+    data.id = Date.now()
+    setDb([...db, data])
+  }
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <CashForm createData={createData}/>
+     {db &&(
+     <CashRegister db={db}/>)}
     </div>
   );
 }

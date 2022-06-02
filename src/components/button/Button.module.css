@@ -1,0 +1,18 @@
+.button{
+    padding: 8px 45px;
+    border-radius: 8px;
+    outline: none;
+    border-style: none;
+    margin: 8px;
+    background-image: linear-gradient(to right, #990660 0%, #AA076B  100%);
+
+    color: #eee;
+             
+}
+      .button:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        box-shadow: 0 0 20px #eee;
+        text-decoration: none;
+      }
+     

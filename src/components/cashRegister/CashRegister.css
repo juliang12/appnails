@@ -1,0 +1,18 @@
+.container__register{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.table{
+    width: 100%;
+}
+
+.tbody{
+    width: 100%;
+}
+
+tr th{
+    padding: 15px 45px;
+    border: 1px solid #ccc;
+}
