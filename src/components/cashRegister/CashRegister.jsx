@@ -1,8 +1,17 @@
 import CashTableRow from "components/cashtablerow/CashTableRow";
 import "./CashRegister.css";
 import Total from "components/total/Total";
+import { StateContext } from "context/StateProvider";
+import { useContext } from "react";
 
-const CashRegister = ({ db }) => {
+const CashRegister = () => {
+  const { db, setDb } = useContext(StateContext);
+
+  const deleteData = (id) => {
+    let newArray = db.filter((item) => item.id !== id);
+    setDb(newArray);
+  };
+
   return (
     <div className="container__register">
       <table className="table">
@@ -14,20 +23,15 @@ const CashRegister = ({ db }) => {
           </tr>
         </thead>
         <tbody>
-          {db && db?.map((item) => <CashTableRow key={item.id} data={item} />)}
+          {db &&
+            db?.map((item) => (
+              <CashTableRow key={item.id} data={item} deleteData={deleteData} />
+            ))}
         </tbody>
-        <thead>
-          <tr>
-            <th>Manicura</th>
-            <th>Total Efectivo</th>
-            <th>Total Credito</th>
-            <th>Ganancias</th>
-            <th>Total General</th>
-          </tr>
-        </thead>
-        <tbody className="tbody">
+
+        <div className="tbody">
           <Total db={db} />
-        </tbody>
+        </div>
       </table>
     </div>
   );

@@ -1,19 +1,22 @@
 import Button from "components/button/Button";
+import { StateContext } from "context/StateProvider";
 import { Field, Formik, Form } from "formik";
+import { useContext } from "react";
 import style from "./Form.module.css";
 
 const initialValues = {
-  manicure: "",
+  manicure: "mica",
   income: "",
   exit: "",
-  credit: "",
+  credit: false,
 };
 
-const CashForm = ({ createData }) => {
+const CashForm = () => {
+  const { createData } = useContext(StateContext);
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={(values) => createData(values)}
+      onSubmit={(values, { resetForm }) => createData(values, resetForm)}
     >
       {({ values, handleChange, handleSubmit }) => (
         <Form className={style.container}>
@@ -24,7 +27,9 @@ const CashForm = ({ createData }) => {
             value={values.manicure}
             onChange={handleChange}
           >
-            <option value="mica">Mica</option>
+            <option selected value="mica">
+              Mica
+            </option>
             <option value="mel">Mel</option>
             <option value="abi">Abi</option>
             <option value="jali">Jali</option>
@@ -50,7 +55,9 @@ const CashForm = ({ createData }) => {
             value={values.credit}
             onChange={handleChange}
           />
-          <Button onSubmit={handleSubmit}>Agregar</Button>
+          <Button type="submit" onSubmit={handleSubmit}>
+            Agregar
+          </Button>
         </Form>
       )}
     </Formik>
