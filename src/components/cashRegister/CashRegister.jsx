@@ -1,8 +1,7 @@
-import CashTableRow from "components/cashtablerow/CashTableRow";
 import "./CashRegister.css";
-import Total from "components/total/Total";
 import { StateContext } from "context/StateProvider";
 import { useContext } from "react";
+import { CashTableRow, Total } from "components";
 
 const CashRegister = () => {
   const { db, setDb } = useContext(StateContext);
@@ -17,7 +16,9 @@ const CashRegister = () => {
       <table className="table">
         <thead>
           <tr>
+            <th>Detalle</th>
             <th>Manicura</th>
+            <th>Forma</th>
             <th>Entrada</th>
             <th>Salida</th>
           </tr>

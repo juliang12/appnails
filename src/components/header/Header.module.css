@@ -1,0 +1,29 @@
+.container{
+    width: 100%;
+    height: 50px;
+    background-color: #8D8DAA;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.logo{
+    color: #F56D91;
+}
+
+.navbar{
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar li{
+    padding: 0 8px;
+    list-style: none;
+}
+
+.navbar a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}

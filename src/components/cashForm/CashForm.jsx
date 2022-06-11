@@ -5,10 +5,11 @@ import { useContext } from "react";
 import style from "./Form.module.css";
 
 const initialValues = {
+  details: "",
   manicure: "mica",
   income: "",
   exit: "",
-  credit: false,
+  credit: "digital",
 };
 
 const CashForm = () => {
@@ -21,13 +22,20 @@ const CashForm = () => {
       {({ values, handleChange, handleSubmit }) => (
         <Form className={style.container}>
           <Field
+            type="text"
+            name="details"
+            placeholder="Detalles"
+            value={values.details}
+            onChange={handleChange}
+          />
+          <Field
             as="select"
             className={style.select}
             name="manicure"
             value={values.manicure}
             onChange={handleChange}
           >
-            <option selected value="mica">
+            <option defaultValue={"mica"} value="mica">
               Mica
             </option>
             <option value="mel">Mel</option>
@@ -41,6 +49,7 @@ const CashForm = () => {
             value={values.income}
             onChange={handleChange}
           />
+
           <Field
             type="number"
             name="exit"
@@ -48,13 +57,19 @@ const CashForm = () => {
             value={values.exit}
             onChange={handleChange}
           />
-          <label htmlFor="credit">Mercado Pago</label>
-          <input
-            type="checkbox"
+          <label htmlFor="credit">Forma de Pago</label>
+          <Field
+            as="select"
             name="credit"
+            className={style.select}
             value={values.credit}
             onChange={handleChange}
-          />
+          >
+            <option defaultValue={"digital"} value="digital">
+              Digital
+            </option>
+            <option value="efectivo">Efectivo</option>
+          </Field>
           <Button type="submit" onSubmit={handleSubmit}>
             Agregar
           </Button>

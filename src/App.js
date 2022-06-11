@@ -1,15 +1,16 @@
+import { CashForm, CashRegister } from 'components';
+import Layout from 'components/layout/Layout';
 import './App.css';
-import CashForm from 'components/cashForm/CashForm';
-import CashRegister from 'components/cashRegister/CashRegister';
+
 
 
 function App() {
   
   return (
-    <div className="App">
+    <Layout>
      <CashForm/>
      <CashRegister/>)
-    </div>
+    </Layout>
   );
 }
 

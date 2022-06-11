@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    background-color: #F7F5F2;
 }
 
 .table{
@@ -14,5 +15,5 @@
 
 tr th{
     padding: 15px 45px;
-    border: 1px solid #ccc;
+    border: 1px solid #000;
 }

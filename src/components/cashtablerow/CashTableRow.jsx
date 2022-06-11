@@ -5,13 +5,17 @@ import React, { useContext } from "react";
 const CashTableRow = ({ data, deleteData }) => {
   const { setSelected } = useContext(StateContext);
   setSelected(data);
+
+  const { details, manicure, credit, income, exit, id } = data;
   return (
     <tr>
-      <td>{data.manicure}</td>
-      <td>${data.income}</td>
-      <td>${data.exit}</td>
+      <td>{details}</td>
+      <td>{manicure}</td>
+      <td>{credit}</td>
+      <td>${income}</td>
+      <td>${exit}</td>
       <td>
-        <Button onClick={() => deleteData(data.id)}>Eliminar</Button>
+        <Button onClick={() => deleteData(id)}>Eliminar</Button>
       </td>
     </tr>
   );
