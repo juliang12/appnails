@@ -1,29 +1,38 @@
+import { totals } from "components/handlers";
 import { createContext, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
 
-
 const StateContext = createContext();
 
-const initialDb = [
-    {id: uuidv4(), manicure: "mel", income: 20, exit: 30, credit: true}
-  ]
+const initialTotals = [
+    { manicure: "abi", income: 0 },
+    { manicure: "mica", income: 0 },
+    { manicure: "jali", income: 0 },
+  ];
+  
 
 const StateProvider = ({children})=>{
-    const [db, setDb] = useState(initialDb);
-    const [totalManicure, setTotalManicure] = useState(null);
-    const [selected, setSelected] = useState({});
+    const [db, setDb] = useState([]);
+    const [totales, setTotales] = useState(initialTotals);
+    const [selected, setSelected] = useState([]);
 
     const createData = (data, reset)=>{
-        console.log(data)
+        setSelected(data)
+
         if(data){
         data.id = uuidv4();
         setDb([...db, data])
         }
+        totals(data, totales, setTotales)
         reset()
       }
 
-    const data = {totalManicure, setTotalManicure, selected, setSelected, db, setDb, createData}
+      const reset = () => {
+        setTotales(initialTotals);
+      };
+
+    const data = { selected, setSelected, db, setDb, createData, totales, setTotales, reset}
 
     return(
         <StateContext.Provider value={data}>
