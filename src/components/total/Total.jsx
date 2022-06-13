@@ -1,12 +1,11 @@
-import Button from "components/button/Button";
-import Calculations from "components/calculations/Calculations";
 import { StateContext } from "context/StateProvider";
 import React, { useContext } from "react";
 import { useMemo } from "react";
+import { cashTotal } from "utils/util_total";
 import style from "./Total.module.css";
 
 const Total = () => {
-  const { totales, reset, db } = useContext(StateContext);
+  const { db } = useContext(StateContext);
 
   const total = useMemo(() => {
     return db.reduce((acc, item) => {
@@ -25,12 +24,9 @@ const Total = () => {
       <div className={style.total}>
         <h1>TOTAL: ${total}</h1>
         <h1>TOTAL CREDIT: ${totalCredit}</h1>
-        <ul>
-          {totales.map((item) => (
-            <Calculations key={item.manicure} item={item} />
-          ))}
-        </ul>
-        <Button onClick={() => reset()}>Reset</Button>
+        <h3>Mica:{cashTotal(db, "mica")}</h3>
+        <h3>Abi: {cashTotal(db, "abi")}</h3>
+        <h3>Jali: {cashTotal(db, "jali")}</h3>
       </div>
     </>
   );

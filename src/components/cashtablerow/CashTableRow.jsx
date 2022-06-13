@@ -9,12 +9,12 @@ const CashTableRow = ({ data, deleteData }) => {
   const { details, manicure, credit, income, exit, id } = data;
   return (
     <tr>
-      <td>{details}</td>
-      <td>{manicure}</td>
-      <td>{credit}</td>
-      <td>${income}</td>
-      <td>${exit}</td>
-      <td>
+      <td style={{ border: "1px solid #BDBDBD" }}>{details}</td>
+      <td style={{ border: "1px solid #BDBDBD" }}>{manicure}</td>
+      <td style={{ border: "1px solid #BDBDBD" }}>{credit}</td>
+      <td style={{ border: "1px solid #BDBDBD" }}>${income}</td>
+      <td style={{ border: "1px solid #BDBDBD" }}>${exit}</td>
+      <td style={{ border: "1px solid #BDBDBD" }}>
         <Button onClick={() => deleteData(id)}>Eliminar</Button>
       </td>
     </tr>

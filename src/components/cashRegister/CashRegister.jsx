@@ -2,13 +2,15 @@ import "./CashRegister.css";
 import { StateContext } from "context/StateProvider";
 import { useContext } from "react";
 import { CashTableRow, Total } from "components";
+import { deleteDoc, doc } from "firebase/firestore";
+import { bd } from "services/firebase";
 
 const CashRegister = () => {
-  const { db, setDb } = useContext(StateContext);
+  const { db } = useContext(StateContext);
 
-  const deleteData = (id) => {
-    let newArray = db.filter((item) => item.id !== id);
-    setDb(newArray);
+  const deleteData = async (id) => {
+    const userDoc = doc(bd, "caja", id);
+    await deleteDoc(userDoc);
   };
 
   return (
