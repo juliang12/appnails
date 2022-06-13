@@ -1,3 +1,3 @@
-export function cashTotal(data) {
-    return data?.reduce((acc, item)=> { return item.credit === "efectivo" ? acc + item.income - item.exit : acc}, 0)
+export function cashTotal(data, manicure) {
+    return data?.reduce((acc, item)=> { return item.manicure === manicure ? acc + item.income / 2 : acc}, 0)
 } 
