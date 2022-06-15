@@ -3,13 +3,15 @@ import { StateContext } from "context/StateProvider";
 import { useContext } from "react";
 import { CashTableRow, Total } from "components";
 import { deleteDoc, doc } from "firebase/firestore";
-import { bd } from "services/firebase";
+import { bd } from "services/firebase.config";
 
 const CashRegister = () => {
-  const { db } = useContext(StateContext);
+  const { db, setDb } = useContext(StateContext);
 
   const deleteData = async (id) => {
     const userDoc = doc(bd, "caja", id);
+    const delDoc = db.filter((item) => item.id !== id);
+    setDb(delDoc);
     await deleteDoc(userDoc);
   };
 
