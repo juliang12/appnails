@@ -1,3 +1,5 @@
+export * from './layout';
+
 export { default as Button } from './button/Button';
 export * from './cashForm';
 export * from './cashRegister';

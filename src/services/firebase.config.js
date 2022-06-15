@@ -1,11 +1,9 @@
 import { initializeApp } from "firebase/app";
 import {getFirestore} from "@firebase/firestore"
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getAuth } from "firebase/auth"
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.API_KEY,
+  apiKey: process.env.REACT_APP_API_key,
   authDomain: "nailsbymel-b5522.firebaseapp.com",
   projectId: "nailsbymel-b5522",
   storageBucket: "nailsbymel-b5522.appspot.com",
@@ -17,4 +15,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export const bd = getFirestore(app);
-export {app}
+const auth = getAuth(app)
+
+export {auth}
