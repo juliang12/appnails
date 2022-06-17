@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Layout } from "components";
 import Caja from "routes/Caja";
 import Login from "routes/Login";
+import Schedule from "components/schedule/Schedule";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,6 +18,7 @@ root.render(
           <Routes>
             <Route path="/" element={<App />} />
             <Route path="/caja" element={<Caja />} />
+            <Route path="/agenda" element={<Schedule />} />
             <Route path="/login" element={<Login />} />
           </Routes>{" "}
         </Layout>
