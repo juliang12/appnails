@@ -1,0 +1,14 @@
+.input{
+    width: 40%;
+    height: 35px;
+    border-radius: 8px;
+    margin: 8px 0;
+}
+
+.label{
+    width: 40%;
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    text-align: start;
+}
