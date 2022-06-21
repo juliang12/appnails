@@ -1,12 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import style from "./Header.module.css";
-import { Link, NavLink } from "react-router-dom";
-import { StateContext } from "context/StateProvider";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Button } from "components";
 import { FaBars, FaTimes } from "react-icons/fa";
+import useFirebase from "hooks/useFirebase";
 
 const Header = () => {
-  const { signOutUser, user } = useContext(StateContext);
+  const { user, signOutUser } = useFirebase();
   const [toggle, setToggle] = useState(false);
 
   const handleSignIOut = async () => {
@@ -28,24 +28,34 @@ const Header = () => {
       </div>
       <nav>
         <ul className={toggle ? style.navbarActive : style.navbar}>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <a href="">Agenda</a>
-          </li>
-          <li>
-            <a href="">Caja</a>
-          </li>
-          <li>
-            <a href="">Clientas</a>
-          </li>
+          {user && (
+            <>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <NavLink to="/agenda">Agenda</NavLink>
+              </li>
+              <li>
+                <NavLink to="/caja">Caja</NavLink>
+              </li>
+              <li>
+                <NavLink to="/clientas">Clientas</NavLink>
+              </li>
+            </>
+          )}
         </ul>
       </nav>
+      {user ? (
+        <Button type="button" onClick={handleSignIOut}>
+          Cerrar Sesion
+        </Button>
+      ) : (
+        <NavLink to="/login">
+          <Button>Login</Button>
+        </NavLink>
+      )}
 
-      <Button type="button" onClick={handleSignIOut}>
-        {user ? "Cerrar Sesion" : <NavLink to="/login">Login</NavLink>}
-      </Button>
       <div onClick={isResponsive} className={style.icon}>
         {toggle ? <FaTimes /> : <FaBars />}
       </div>
