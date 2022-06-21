@@ -1,9 +1,9 @@
 import { Button } from "components";
-import { Field, Form, Formik } from "formik";
+import { Form, Formik } from "formik";
 import React, { useContext } from "react";
-import { StateContext } from "context/StateProvider";
 import style from "./LoginForm.module.css";
 import TextInput from "components/textInput/TextInput";
+import useFirebase from "hooks/useFirebase";
 
 const initialForm = {
   email: "",
@@ -11,7 +11,7 @@ const initialForm = {
 };
 
 const LoginForm = () => {
-  const { loginUser } = useContext(StateContext);
+  const { loginUser } = useFirebase();
 
   return (
     <Formik

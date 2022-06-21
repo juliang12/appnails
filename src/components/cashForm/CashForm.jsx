@@ -1,8 +1,7 @@
 import Button from "components/button/Button";
 import Loader from "components/loader/Loader";
-import { StateContext } from "context/StateProvider";
 import { Field, Formik, Form } from "formik";
-import { useContext } from "react";
+import useFirebase from "hooks/useFirebase";
 import style from "./Form.module.css";
 
 const initialValues = {
@@ -14,7 +13,8 @@ const initialValues = {
 };
 
 const CashForm = () => {
-  const { createData, loading } = useContext(StateContext);
+  const { createData, loading } = useFirebase();
+
   return (
     <>
       <Formik

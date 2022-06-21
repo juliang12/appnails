@@ -4,14 +4,16 @@ import { useContext } from "react";
 import { CashTableRow, Total } from "components";
 import { deleteDoc, doc } from "firebase/firestore";
 import { bd } from "services/firebase.config";
+import { TYPES } from "reducer/types";
 
 const CashRegister = () => {
-  const { db, setDb } = useContext(StateContext);
+  const { stateApp, dispatch } = useContext(StateContext);
+  const { db } = stateApp;
+  console.log(db, "state");
 
   const deleteData = async (id) => {
     const userDoc = doc(bd, "caja", id);
-    const delDoc = db.filter((item) => item.id !== id);
-    setDb(delDoc);
+    dispatch({ types: TYPES.DELETE_DATA, payload: id });
     await deleteDoc(userDoc);
   };
 

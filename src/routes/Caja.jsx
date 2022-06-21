@@ -1,7 +1,13 @@
+import { CashForm, CashRegister } from "components";
 import React from "react";
 
 const Caja = () => {
-  return <div>Caja</div>;
+  return (
+    <>
+      <CashForm />
+      <CashRegister />
+    </>
+  );
 };
 
 export default Caja;

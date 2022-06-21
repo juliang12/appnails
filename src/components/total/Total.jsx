@@ -5,7 +5,8 @@ import { cashTotal } from "utils/util_total";
 import style from "./Total.module.css";
 
 const Total = () => {
-  const { db } = useContext(StateContext);
+  const { stateApp } = useContext(StateContext);
+  const { db } = stateApp;
 
   const total = useMemo(() => {
     return db.reduce((acc, item) => {
