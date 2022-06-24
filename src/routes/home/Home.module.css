@@ -1,0 +1,17 @@
+.container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+}
+
+
+
+.logo{
+    width: 80%;
+    padding: 3rem;
+}

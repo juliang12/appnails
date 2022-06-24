@@ -2,6 +2,7 @@ import { TYPES } from "./types";
 
 export const initialStates ={
     db: [],
+    user: false,
     loading: false,
 } 
 
@@ -26,13 +27,19 @@ switch (action.types) {
             db: state.db.filter(doc => doc.id !== newState)
         }
     }
-    case TYPES.DELETE_SCHEDULE:{
+    case TYPES.LOGIN_AUTH:{
         const newState = action.payload;
         return{
             ...state,
+            user: newState
             
         }
     }
+    case TYPES.DELETE_ALL_DATA: 
+        return{
+            ...state,
+            db: []
+        }
     default:
         return state;
 }

@@ -4,9 +4,11 @@ import React, { useContext } from "react";
 
 const CashTableRow = ({ data, deleteData }) => {
   const { setSelected } = useContext(StateContext);
+  console.log(data);
   setSelected(data);
 
   const { details, manicure, credit, income, exit, id } = data;
+  console.log(id);
   return (
     <tr>
       <td style={{ border: "1px solid #BDBDBD" }}>{details}</td>
@@ -15,7 +17,9 @@ const CashTableRow = ({ data, deleteData }) => {
       <td style={{ border: "1px solid #BDBDBD" }}>${income}</td>
       <td style={{ border: "1px solid #BDBDBD" }}>${exit}</td>
       <td style={{ border: "1px solid #BDBDBD" }}>
-        <Button onClick={() => deleteData(id)}>Eliminar</Button>
+        <Button type="button" onClick={() => deleteData(id)}>
+          Eliminar
+        </Button>
       </td>
     </tr>
   );
