@@ -1,7 +1,7 @@
 import "./CashRegister.css";
 import { StateContext } from "context/StateProvider";
 import { useContext } from "react";
-import { CashTableRow, Total } from "components";
+import { Button, CashTableRow, Total } from "components";
 import { deleteDoc, doc } from "firebase/firestore";
 import { bd } from "services/firebase.config";
 import { TYPES } from "reducer/types";

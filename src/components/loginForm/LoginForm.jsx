@@ -1,6 +1,5 @@
 import { Button } from "components";
 import { Form, Formik } from "formik";
-import React, { useContext } from "react";
 import style from "./LoginForm.module.css";
 import TextInput from "components/textInput/TextInput";
 import useFirebase from "hooks/useFirebase";
