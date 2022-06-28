@@ -1,11 +1,5 @@
 import { TYPES } from "./types";
 
-export const initialStates ={
-    db: [],
-    user: false,
-    loading: false,
-} 
-
 const reducer = (state, action)=>{
 switch (action.types) {
     case TYPES.CREATE_DATA:

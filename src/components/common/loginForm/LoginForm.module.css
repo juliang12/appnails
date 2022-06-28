@@ -1,0 +1,22 @@
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+
+}
+
+.containerInput{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    margin: 8px;
+    backdrop-filter: blur(3px) grayscale(60%);
+    border: 1px solid #000;
+    border-radius: 10px;
+}

@@ -3,3 +3,4 @@ export { default as Calendar } from './calendar/Calendar';
 export { default as Clientas } from './clientas/Clientas';
 export { default as Home } from './home/Home';
 export { default as Login } from './login/Login';
+export { default as PrivateRoute } from './privateRoute/PrivateRoute';

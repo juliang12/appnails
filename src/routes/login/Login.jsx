@@ -1,11 +1,17 @@
-import LoginForm from "components/loginForm/LoginForm";
-import React from "react";
+import LoginForm from "components/common/loginForm/LoginForm";
+import NavIcons from "components/common/navIcons/NavIcons";
+import style from "./Login.module.css";
 
 const Login = () => {
   return (
-    <div>
-      <h1>Ingresa un Usuario para poder Loguearte</h1>
-      <LoginForm />
+    <div className={style.container}>
+      <div className={style.left}>
+        <h1>Login</h1>
+        <LoginForm />
+      </div>
+      <div className={style.right}>
+        <NavIcons />
+      </div>
     </div>
   );
 };

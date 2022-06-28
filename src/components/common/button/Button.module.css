@@ -1,0 +1,23 @@
+.button{
+    padding: 8px 45px;
+    border-radius: 8px;
+    outline: none;
+    border-style: none;
+    margin: 8px;
+    background-color: #FFC4C4;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+}
+
+a{
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #eee;
+}
+      .button:hover {
+        color: #000;
+        background-color: #fcd8d8;
+        text-decoration: none;
+      }
+     

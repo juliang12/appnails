@@ -1,17 +1,22 @@
 .container{
     width: 100%;
-    height: auto;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 1rem;
+    background-color:#f5ecdc;
 }
 
 
-
 .logo{
-    width: 80%;
-    padding: 3rem;
+    width: 60%;
+    height: auto;
+}
+
+.containerLogo{
+    width: 40%;
+    margin-top: 2rem;
 }

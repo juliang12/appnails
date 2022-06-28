@@ -1,6 +1,5 @@
 import "./App.css";
-import { Layout } from "components";
-import Schedule from "components/schedule/Schedule";
+import { Layout, Schedule } from "components";
 import { StateContext } from "context/StateProvider";
 import {lazy, Suspense, useContext, useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
@@ -13,7 +12,6 @@ const Clientas = lazy(()=>import("routes/clientas/Clientas"))
 const Login = lazy(()=>import("routes/login/Login"))
 
 
-
 function App() {
   const {stateApp} = useContext(StateContext);
   const {user} = stateApp;
@@ -22,6 +20,8 @@ function App() {
      useEffect(() => {
         if(!user){
           history("/login")
+        }else{
+          history("/")
         }
      }, [user]);
   

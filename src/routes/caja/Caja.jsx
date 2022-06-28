@@ -1,12 +1,16 @@
 import { CashForm, CashRegister } from "components";
-import React from "react";
+import style from "./Caja.module.css";
 
 const Caja = () => {
   return (
-    <>
-      <CashForm />
-      <CashRegister />
-    </>
+    <div className={style.container}>
+      <div className={style.left}>
+        <CashForm />
+      </div>
+      <div className={style.right}>
+        <CashRegister />
+      </div>
+    </div>
   );
 };
 
