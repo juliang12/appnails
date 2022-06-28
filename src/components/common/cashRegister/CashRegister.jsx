@@ -5,6 +5,8 @@ import { CashTableRow, Total } from "components";
 import { deleteDoc, doc } from "firebase/firestore";
 import { bd } from "services/firebase.config";
 import { TYPES } from "reducer/types";
+import { AnimatePresence } from "framer-motion";
+import { orderArray } from "utils/util_order";
 
 const CashRegister = () => {
   const { stateApp, dispatch } = useContext(StateContext);
@@ -15,6 +17,8 @@ const CashRegister = () => {
     dispatch({ types: TYPES.DELETE_DATA, payload: id });
     await deleteDoc(userDoc);
   };
+
+  console.log(db);
 
   return (
     <div className="container__register">
@@ -30,10 +34,16 @@ const CashRegister = () => {
           </tr>
         </thead>
         <tbody>
-          {db &&
-            db?.map((item) => (
-              <CashTableRow key={item.id} data={item} deleteData={deleteData} />
-            ))}
+          <AnimatePresence>
+            {db &&
+              db?.map((item) => (
+                <CashTableRow
+                  key={item.id}
+                  data={item}
+                  deleteData={deleteData}
+                />
+              ))}
+          </AnimatePresence>
         </tbody>
         <div className="tbody">
           <Total db={db} />
