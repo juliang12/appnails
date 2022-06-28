@@ -1,3 +1,3 @@
-export function cashTotalUnit(data) {
-    return data?.reduce((acc, item)=> item.income + acc / 2, 0)
+export function cashTotalUnit(data, modo) {
+    return data?.reduce((acc, item)=> { return item.credit === modo ?  acc + item.income - item.exit : acc },0)
 } 
