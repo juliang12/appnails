@@ -1,7 +1,6 @@
 import { StateContext } from "context/StateProvider";
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { addDoc, collection, getDocs } from "firebase/firestore";
-import { now } from "moment";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TYPES } from "reducer/types";
@@ -24,12 +23,16 @@ const useFirebase = () => {
     }
   };
 
+  useEffect(() => {
+    getData();
+  }, []);
+
   const createData = async (data, reset) => {
-    console.log(data)
     setLoading(true);
     try {
       await addDoc(userCollectionRef, data);
       dispatch({ types: TYPES.CREATE_DATA, payload: data });
+      getData();
       reset();
     } catch (error) {
       console.log(error.message);
@@ -57,15 +60,12 @@ const useFirebase = () => {
     return () => unSuscribe();
   }, []);
 
-  useEffect(() => {
-    getData();
-  }, []);
-
   return {
     user,
     loading,
     createData,
     loginUser,
+    getData,
   };
 };
 

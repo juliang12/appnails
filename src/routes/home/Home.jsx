@@ -10,7 +10,9 @@ const Home = () => {
   return (
     <div className={style.container}>
       <h2>Bienvenid@ {user?.email}</h2>
-      <img className={style.logo} src={Logo} alt="" />
+      <div className={style.containerLogo}>
+        <img className={style.logo} src={Logo} alt="" />
+      </div>
     </div>
   );
 };

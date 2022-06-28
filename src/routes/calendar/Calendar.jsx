@@ -1,5 +1,4 @@
-import Schedule from "components/schedule/Schedule";
-import React from "react";
+import Schedule from "components/common/schedule/Schedule";
 
 const Calendar = () => {
   return (
