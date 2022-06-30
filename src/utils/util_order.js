@@ -1,3 +1,5 @@
 export const orderArray = (data)=>{
-data?.sort((a, b) => {return a - b})
+for(const index in data){
+    console.log(data[index])
+}
 }

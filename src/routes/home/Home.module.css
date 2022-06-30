@@ -10,6 +10,12 @@
     background-color:#f5ecdc;
 }
 
+.container h2{
+    text-transform: uppercase;
+    padding: 5px;
+    background-color: aliceblue;
+    border: 2px solid rgb(216, 35, 119);
+}
 
 .logo{
     width: 60%;
@@ -17,6 +23,6 @@
 }
 
 .containerLogo{
-    width: 40%;
+
     margin-top: 2rem;
 }
