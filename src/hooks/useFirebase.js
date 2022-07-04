@@ -5,13 +5,18 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TYPES } from "reducer/types";
 import { auth, bd } from "services/firebase.config";
+import { orderArray } from "utils/util_order";
 
 const useFirebase = () => {
   const { stateApp, dispatch } = useContext(StateContext);
-  const { user } = stateApp;
+  const { user, db } = stateApp;
   const history = useNavigate();
   const [loading, setLoading] = useState(false);
   const userCollectionRef = collection(bd, "caja");
+
+useEffect(() => {
+  orderArray(db)
+}, [db]);
 
   const loginUser = async (values) => {
     try {

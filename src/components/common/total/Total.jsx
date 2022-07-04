@@ -6,18 +6,20 @@ import style from "./Total.module.css";
 
 const Total = () => {
   const { stateApp } = useContext(StateContext);
-  const { db } = stateApp;
+  const { filtered } = stateApp;
 
   return (
-    <>
-      <div className={style.total}>
-        <h1>TOTAL: ${cashTotalUnit(db, "efectivo")}</h1>
-        <h1>TOTAL CREDIT: ${cashTotalUnit(db, "digital")}</h1>
-        <h3>Mica:${cashTotal(db, "mica")}</h3>
-        <h3>Abi: ${cashTotal(db, "abi")}</h3>
-        <h3>Jali: {cashTotal(db, "jali")}</h3>
+    <div className={style.total}>
+      <div className={style.totals}>
+        <h1>TOTAL EFECTIVO: ${cashTotalUnit(filtered, "efectivo")}</h1>
+        <h1>TOTAL CREDITO: ${cashTotalUnit(filtered, "digital")}</h1>
       </div>
-    </>
+      <div className={style.porcentaje}>
+        <h3>Mica: ${cashTotal(filtered, "mica")}</h3>
+        <h3>Abi: ${cashTotal(filtered, "abi")}</h3>
+        <h3>Jali: ${cashTotal(filtered, "jali")}</h3>
+      </div>
+    </div>
   );
 };
 

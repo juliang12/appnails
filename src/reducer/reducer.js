@@ -11,13 +11,15 @@ switch (action.types) {
         const newState = action.payload
         return{
             ...state,
-            db: newState.map(doc => ({...doc.data(), id: doc.id}))
+            db: newState.map(doc => ({...doc.data(), id: doc.id})),
+            filtered: newState.map(doc => ({...doc.data(), id: doc.id}))
         }
     }
     case TYPES.DELETE_DATA:{
         const newState = action.payload;
         return{
             ...state,
+            filtered: state.db.filter(doc => doc.id !== newState),
             db: state.db.filter(doc => doc.id !== newState)
         }
     }
@@ -29,11 +31,16 @@ switch (action.types) {
             
         }
     }
-    case TYPES.DELETE_ALL_DATA: 
-        return{
+    case TYPES.SEARCH_DATA:{
+        const newState = state.db.filter(item => { return item.manicure.toLowerCase().includes(action.payload.toLowerCase())}) 
+
+        
+            return{
             ...state,
-            db: []
-        }
+            filtered: newState
+            }
+            
+    }
     default:
         return state;
 }

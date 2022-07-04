@@ -6,19 +6,16 @@ import { deleteDoc, doc } from "firebase/firestore";
 import { bd } from "services/firebase.config";
 import { TYPES } from "reducer/types";
 import { AnimatePresence } from "framer-motion";
-import { orderArray } from "utils/util_order";
 
 const CashRegister = () => {
   const { stateApp, dispatch } = useContext(StateContext);
-  const { db } = stateApp;
+  const { db, filtered } = stateApp;
 
   const deleteData = async (id) => {
     const userDoc = doc(bd, "caja", id);
     dispatch({ types: TYPES.DELETE_DATA, payload: id });
     await deleteDoc(userDoc);
   };
-
-  console.log(db);
 
   return (
     <div className="container__register">
@@ -35,8 +32,8 @@ const CashRegister = () => {
         </thead>
         <tbody>
           <AnimatePresence>
-            {db &&
-              db?.map((item) => (
+            {filtered &&
+              filtered?.map((item) => (
                 <CashTableRow
                   key={item.id}
                   data={item}
@@ -45,10 +42,10 @@ const CashRegister = () => {
               ))}
           </AnimatePresence>
         </tbody>
-        <div className="tbody">
-          <Total db={db} />
-        </div>
-      </table>
+      </table>{" "}
+      <div className="container__totals">
+        <Total />
+      </div>
     </div>
   );
 };

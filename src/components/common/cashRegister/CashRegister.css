@@ -1,10 +1,18 @@
 .container__register{
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     background-color: #F7F5F2;
     color: #212121;
     text-align: center;
+}
+
+.container__totals{
+    
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .table{
@@ -16,9 +24,6 @@ thead{
     box-shadow: 0 5px 10px rgb(209, 209, 209);
 }
 
-.tbody{
-    width: 100%;
-}
 
 tr:nth-child(even){
     background-color: #e7e7e7;

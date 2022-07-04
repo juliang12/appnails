@@ -20,6 +20,10 @@ align-items: center;
 .labelSelect{
     width: 100%;
     display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    text-align: center;
+    padding: 5px 0;
 }
 
 .containerSelect{
@@ -41,6 +45,11 @@ align-items: center;
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.input{
+    width: 100%;
+    margin: 7px 5px;
 }
 
 @media screen and (max-width: 780px) {
