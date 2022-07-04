@@ -24,24 +24,26 @@ const Header = () => {
 
   return (
     <div className={style.container}>
-      <Logo />
-      <nav>
-        <ul className={toggle ? style.navbarActive : style.navbar}>
-          <Navigation />
-        </ul>
-      </nav>
-      {user ? (
-        <Button type="button" onClick={handleSignIOut}>
-          Cerrar Sesion
-        </Button>
-      ) : (
-        <NavLink to="/login">
-          <Button>Login</Button>
-        </NavLink>
-      )}
+      <div className={style.containerNav}>
+        <Logo />
+        <nav>
+          <ul className={toggle ? style.navbarActive : style.navbar}>
+            <Navigation />
+          </ul>
+        </nav>
+        {user ? (
+          <Button type="button" onClick={handleSignIOut}>
+            Cerrar Sesion
+          </Button>
+        ) : (
+          <NavLink to="/login">
+            <Button>Login</Button>
+          </NavLink>
+        )}
 
-      <div onClick={isResponsive} className={style.icon}>
-        {toggle ? <FaTimes /> : <FaBars />}
+        <div onClick={isResponsive} className={style.icon}>
+          {toggle ? <FaTimes /> : <FaBars />}
+        </div>
       </div>
     </div>
   );

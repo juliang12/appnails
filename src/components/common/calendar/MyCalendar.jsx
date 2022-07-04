@@ -10,6 +10,10 @@ const MyCalendar = ({ deleteData }) => {
   return (
     <>
       <Calendar
+        style={{
+          width: "1360px",
+          margin: "0 auto",
+        }}
         selectable
         events={eventList}
         defaultDate={new Date()}
@@ -20,6 +24,11 @@ const MyCalendar = ({ deleteData }) => {
         onSelectSlot={handleSelect}
         onSelectEvent={(e) => deleteData(e)}
         components={eventList}
+        eventPropGetter={(event) => ({
+          style: {
+            backgroundColor: event.start.getDay() < 5 ? "#A10035" : "#FFE7BF",
+          },
+        })}
         culture="es"
         messages={{
           next: "Siguiente",

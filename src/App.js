@@ -1,8 +1,8 @@
-import "./App.css";
 import { Layout, Schedule } from "components";
 import { StateContext } from "context/StateProvider";
 import {lazy, Suspense, useContext, useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
+import "./styles/global.css"
 
 import PrivateRoute from "routes/privateRoute/PrivateRoute";
 
