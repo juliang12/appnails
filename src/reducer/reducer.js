@@ -32,14 +32,36 @@ switch (action.types) {
         }
     }
     case TYPES.SEARCH_DATA:{
-        const newState = state.db.filter(item => { return item.manicure.toLowerCase().includes(action.payload.toLowerCase())}) 
+        const search = action.payload;
+        const filter = state.db?.filter((value) => { return value.manicure.toLowerCase().includes(search.toLowerCase())}) 
 
-        
             return{
             ...state,
-            filtered: newState
-            }
+             filtered:filter
             
+}
+    }
+    case TYPES.GET_DATA_CLIENTS:{
+        const newState = action.payload;
+
+        return{
+            ...state,
+            clients: newState.map(doc => ({...doc.data(), id: doc.id}))
+        }
+    }
+    case TYPES.ADD_CLIENT:{
+        const newState = action.payload;
+        return{
+            ...state,
+            clients: [...state.clients, newState]
+        }
+    }
+    case TYPES.DELETE_CLIENT:{
+        const newState = action.payload;
+        return{
+            ...state,
+            clients: state.clients.filter(client => client.id !== newState)
+        }
     }
     default:
         return state;

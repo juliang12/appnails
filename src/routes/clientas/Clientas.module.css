@@ -1,0 +1,15 @@
+.container{
+    width: 100%;
+    max-width: 1360px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.left{
+    width: 20%;
+}
+
+.right{
+    width: 80%;
+}

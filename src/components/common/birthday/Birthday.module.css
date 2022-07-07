@@ -1,0 +1,15 @@
+
+
+.container{
+    padding: 3rem 2rem;
+    text-align: center;
+    background-color: rgb(240, 240, 240);
+    font-family: 'Lexend Zetta', sans-serif;
+}
+
+.title{
+    font-size: 3rem;
+    color: var(--main-color);
+    border-top: 4px solid #000; 
+}
+
