@@ -1,5 +1,7 @@
 import { Form, Formik } from "formik";
+import useClients from "hooks/useClients";
 import Button from "../button/Button";
+import Loader from "../loader/Loader";
 import TextInput from "../textInput/TextInput";
 import style from "./FormClients.module.css";
 
@@ -11,8 +13,13 @@ const initialValues = {
 };
 
 const FormClients = () => {
+  const { addClient, loading } = useClients();
+
   return (
-    <Formik initialValues={initialValues}>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={(values, { resetForm }) => addClient(values, resetForm)}
+    >
       {({ values, handleChange, handleSubmit }) => (
         <>
           <Form className={style.container}>
@@ -44,7 +51,8 @@ const FormClients = () => {
               value={values.cellphone}
               onChange={handleChange}
             />
-            <Button>Agregar</Button>
+            <Button onSubmit={handleSubmit}>Agregar</Button>
+            {loading && <Loader />}
           </Form>
         </>
       )}

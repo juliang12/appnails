@@ -1,16 +1,14 @@
 import { StateContext } from "context/StateProvider";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import style from "./Search.module.css";
 import { TYPES } from "reducer";
 
 const Search = ({ label, ...rest }) => {
-  const { dispatch } = useContext(StateContext);
+  const { dispatch, stateApp } = useContext(StateContext);
+  const { db } = stateApp;
   const [search, setSearch] = useState("");
 
-  const handleChange = (e) => {
-    if (e.key === "ESCAPE") {
-      return (e.target.value = "");
-    }
+  const handleSearch = (e) => {
     dispatch({ types: TYPES.SEARCH_DATA, payload: search });
   };
 
@@ -19,11 +17,11 @@ const Search = ({ label, ...rest }) => {
       <label className={style.label}>{label}</label>
       <input
         {...rest}
-        type="search"
+        type="text"
         name="search"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        onKeyUp={handleChange}
+        onKeyUp={handleSearch}
       />
     </>
   );

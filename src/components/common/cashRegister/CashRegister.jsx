@@ -9,7 +9,7 @@ import { AnimatePresence } from "framer-motion";
 
 const CashRegister = () => {
   const { stateApp, dispatch } = useContext(StateContext);
-  const { db, filtered } = stateApp;
+  const { filtered } = stateApp;
 
   const deleteData = async (id) => {
     const userDoc = doc(bd, "caja", id);
@@ -42,7 +42,7 @@ const CashRegister = () => {
               ))}
           </AnimatePresence>
         </tbody>
-      </table>{" "}
+      </table>
       <div className="container__totals">
         <Total />
       </div>
