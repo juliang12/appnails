@@ -4,7 +4,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     text-align: center;
     padding: 1rem;
@@ -13,10 +13,13 @@
 }
 
 .container h2{
-    text-transform: uppercase;
-    padding: 5px;
-    background-color: aliceblue;
-    border: 2px solid rgb(216, 35, 119);
+    border-radius: 5px;
+    background-color: var(--color-three);
+    box-shadow: 10px 10px 13px 0px rgba(0,0,0,0.34);
+-webkit-box-shadow: 10px 10px 13px 0px rgba(0,0,0,0.34);
+-moz-box-shadow: 10px 10px 13px 0px rgba(0,0,0,0.34);
+    margin: 20px 2rem;
+    padding: 10px;
 }
 
 .logo{
@@ -25,6 +28,8 @@
 }
 
 .containerLogo{
-
+    height: 100%;
+    display: flex;
+    align-items: center;
     margin-top: 2rem;
 }

@@ -1,0 +1,49 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "allowJs": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "noFallthroughCasesInSwitch": true,
+        "baseUrl": "./src/",
+        "paths": {
+            "@": [
+                "./src"
+            ],
+            "@components/*": [
+                "components/*"
+            ],
+            "@models/*": [
+                "models/*"
+            ]
+        },
+        "lib": [
+            "DOM",
+            "DOM.Iterable",
+            "ESNext"
+        ],
+        "useDefineForClassFields": true,
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "node",
+        "module": "commonjs",
+        "plugins": [
+            {
+                "name": "typescript-plugin-css-modules"
+            }
+        ],
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "jsx": "react-jsx"
+    },
+    "include": [
+        "./src",
+        "declarations.d.ts",
+        "sweet.d.ts",
+        "index.d.ts"
+    ],
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "Recommended"
+}
