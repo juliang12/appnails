@@ -13,6 +13,11 @@ const AnimateLogo = () => {
       pathLength: 1,
       fill: "rgba(0, 0, 0, 1)",
     },
+    visible2: {
+      opacity: 1,
+      pathLenght: 1,
+      fill: "#ec008c",
+    },
   };
 
   return (
@@ -32,7 +37,7 @@ const AnimateLogo = () => {
           <motion.path
             variants={svgVariants}
             initial="hidden"
-            animate="visible"
+            animate="visible2"
             transition={{
               default: { duration: 2, ease: "easeInOut" },
               fill: { duration: 2, ease: [1, 1, 0.8, 1] },
@@ -52,7 +57,7 @@ m59 -63 c17 -17 32 -35 32 -41 0 -6 4 -9 8 -6 19 11 31 -66 20 -118 l-12 -51
           <motion.path
             variants={svgVariants}
             initial="hidden"
-            animate="visible"
+            animate="visible2"
             transition={{
               default: { duration: 2, ease: "easeInOut" },
               fill: { duration: 2, ease: [1, 1, 0.8, 1] },
@@ -71,10 +76,10 @@ m59 -63 c17 -17 32 -35 32 -41 0 -6 4 -9 8 -6 19 11 31 -66 20 -118 l-12 -51
           <motion.path
             variants={svgVariants}
             initial="hidden"
-            animate="visible"
+            animate="visible2"
             transition={{
               default: { duration: 2, ease: "easeInOut" },
-              fill: { duration: 2, ease: [0, 0, 0.8, 1] },
+              fill: { duration: 2, ease: [1, 1, 0.8, 1] },
             }}
             d="M1302 1678 c-7 -7 -12 -28 -12 -47 1 -76 49 -432 60 -446 17 -20 63
 -19 83 3 15 16 14 35 -8 227 -14 116 -25 218 -25 227 0 40 -69 65 -98 36z m39
@@ -87,7 +92,7 @@ m59 -63 c17 -17 32 -35 32 -41 0 -6 4 -9 8 -6 19 11 31 -66 20 -118 l-12 -51
           <motion.path
             variants={svgVariants}
             initial="hidden"
-            animate="visible"
+            animate="visible2"
             transition={{
               default: { duration: 2, ease: "easeInOut" },
               fill: { duration: 2, ease: [0, 0, 0.8, 1] },
@@ -111,7 +116,7 @@ m59 -63 c17 -17 32 -35 32 -41 0 -6 4 -9 8 -6 19 11 31 -66 20 -118 l-12 -51
           <motion.path
             variants={svgVariants}
             initial="hidden"
-            animate="visible"
+            animate="visible2"
             transition={{
               default: { duration: 2, ease: "easeInOut" },
               fill: { duration: 2, ease: [0, 0, 0.8, 1] },
@@ -132,7 +137,7 @@ m59 -63 c17 -17 32 -35 32 -41 0 -6 4 -9 8 -6 19 11 31 -66 20 -118 l-12 -51
           <motion.path
             variants={svgVariants}
             initial="hidden"
-            animate="visible"
+            animate="visible2"
             transition={{
               default: { duration: 2, ease: "easeInOut" },
               fill: { duration: 2, ease: [0, 0, 0.8, 1] },
@@ -144,7 +149,7 @@ m59 -63 c17 -17 32 -35 32 -41 0 -6 4 -9 8 -6 19 11 31 -66 20 -118 l-12 -51
           <motion.path
             variants={svgVariants}
             initial="hidden"
-            animate="visible"
+            animate="visible2"
             transition={{
               default: { duration: 2, ease: "easeInOut" },
               fill: { duration: 2, ease: [0, 0, 0.8, 1] },
@@ -156,7 +161,7 @@ m59 -63 c17 -17 32 -35 32 -41 0 -6 4 -9 8 -6 19 11 31 -66 20 -118 l-12 -51
           <motion.path
             variants={svgVariants}
             initial="hidden"
-            animate="visible"
+            animate="visible2"
             transition={{
               default: { duration: 2, ease: "easeInOut" },
               fill: { duration: 2, ease: [1, 0, 0.8, 1] },
@@ -171,7 +176,7 @@ m59 -63 c17 -17 32 -35 32 -41 0 -6 4 -9 8 -6 19 11 31 -66 20 -118 l-12 -51
           />
           <motion.path
             initial="hidden"
-            animate="visible"
+            animate="visible2"
             variants={svgVariants}
             transition={{
               default: { duration: 2, ease: "easeInOut" },
