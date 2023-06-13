@@ -1,5 +1,11 @@
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
-import { addDoc, collection, getDocs} from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  getDocs,
+  orderBy,
+  query,
+} from "firebase/firestore";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TYPES } from "reducer";
@@ -8,8 +14,6 @@ import { orderArray } from "utils/util_order";
 import { TodoContextProps } from "models/state.model";
 import { StateContext } from "context/StateProvider";
 
-
-
 const useFirebase = () => {
   const { stateApp, dispatch } = useContext(StateContext) as TodoContextProps;
   const { user, db } = stateApp;
@@ -17,9 +21,9 @@ const useFirebase = () => {
   const [loading, setLoading] = useState(false);
   const userCollectionRef = collection(bd, "caja");
 
-useEffect(() => {
-  orderArray(db)
-}, [db]);
+  useEffect(() => {
+    orderArray(db);
+  }, [db]);
 
   const loginUser = async (values: string | any) => {
     try {
@@ -44,8 +48,8 @@ useEffect(() => {
         manicure: data.manicure,
         exit: data.exit,
         income: data.income,
-        id: Date.now()
-      }
+        id: Date.now(),
+      };
       await addDoc(userCollectionRef, newData);
       dispatch({ types: TYPES.CREATE_DATA, payload: data });
       getData();
@@ -60,9 +64,11 @@ useEffect(() => {
   const getData = async () => {
     setLoading(true);
     try {
-      const data = await getDocs(userCollectionRef)
-      dispatch({ types: TYPES.GET_DATA, payload: data.docs});
-    } catch (error:any) {
+      const data = await getDocs(
+        query(userCollectionRef, orderBy("id", "desc"))
+      );
+      dispatch({ types: TYPES.GET_DATA, payload: data.docs });
+    } catch (error: any) {
       console.log(error.message);
     }
     setLoading(false);

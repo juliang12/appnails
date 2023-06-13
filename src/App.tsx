@@ -16,9 +16,9 @@ function App() {
   const { stateApp } = useContext(StateContext) as TodoContextProps;
   const { user } = stateApp;
   const history = useNavigate();
-  console.log(user);
   useEffect(() => {
     if (!user) {
+      console.log(user);
       history("/login");
     } else {
       history("/");

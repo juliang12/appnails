@@ -6,6 +6,7 @@ import { Calendar } from "react-big-calendar";
 const MyCalendar = ({ deleteData }: any) => {
   const { eventList, handleSelect } = useCalendar();
   const localizer = momentLocalizer(moment);
+  console.log(eventList, "lista");
 
   return (
     <>
@@ -25,7 +26,7 @@ const MyCalendar = ({ deleteData }: any) => {
         onSelectEvent={(e) => deleteData(e)}
         eventPropGetter={(event: any) => ({
           style: {
-            backgroundColor: event.start.getDay() < 5 ? "#A10035" : "#FFE7BF",
+            backgroundColor: event.start.getDay() < 5 ? "#A10035" : "#a55898",
           },
         })}
         culture="es"

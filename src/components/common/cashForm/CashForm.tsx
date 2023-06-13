@@ -52,6 +52,7 @@ const CashForm = () => {
                     <option value="mel">Mel</option>
                     <option value="abi">Abi</option>
                     <option value="jali">Jali</option>
+                    <option value="flor">Flor</option>
                   </Field>
                 </div>
               </div>

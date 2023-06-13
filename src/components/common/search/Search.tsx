@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import style from "./Search.module.css";
 
 import { TextInputTypes, TodoContextProps } from "models";
-import {} from "../../../models/state.model";
+
 import { StateContext } from "../../../context/StateProvider";
 import { TYPES } from "../../../reducer";
 

@@ -7,15 +7,18 @@ import { StateContext } from "context/StateProvider";
 import { bd } from "services/firebase.config";
 import { TYPES } from "reducer";
 import { CashTableRow, Total } from "components/";
+import useFirebase from "hooks/useFirebase";
 
 const CashRegister = () => {
   const { stateApp, dispatch } = useContext(StateContext) as TodoContextProps;
+  const { getData } = useFirebase();
   const { filtered } = stateApp;
 
   const deleteData = async (id: string) => {
     const userDoc = doc(bd, "caja", id);
     dispatch({ types: TYPES.DELETE_DATA, payload: id });
     await deleteDoc(userDoc);
+    await getData();
   };
 
   return (
@@ -34,12 +37,8 @@ const CashRegister = () => {
         <tbody>
           <AnimatePresence>
             {filtered &&
-              filtered?.map((item) => (
-                <CashTableRow
-                  key={item.id}
-                  data={item}
-                  deleteData={deleteData}
-                />
+              filtered.map((doc: any) => (
+                <CashTableRow key={doc.id} data={doc} deleteData={deleteData} />
               ))}
           </AnimatePresence>
         </tbody>

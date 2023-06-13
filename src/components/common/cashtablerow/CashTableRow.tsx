@@ -6,7 +6,7 @@ import { Cash, TodoContextProps } from "models/state.model";
 import { variants } from "utils/variants.util";
 
 interface DataProps {
-  data: Cash;
+  data: Cash | any;
   deleteData: any;
 }
 

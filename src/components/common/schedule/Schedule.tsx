@@ -5,12 +5,16 @@ import useCalendar from "hooks/useCalendar";
 import { alert } from "utils/alert";
 
 const Schedule = () => {
-  const { deleteClient } = useCalendar();
+  const { deleteClient, updateClient } = useCalendar();
+
+  const updateData = (e: React.ChangeEvent<HTMLInputElement> | any) => {
+    updateClient(e);
+  };
 
   const deleteData = async (e: React.ChangeEvent<HTMLInputElement>) => {
     try {
       if (e) {
-        alert(deleteClient, e);
+        alert(deleteClient, updateData, e);
       }
     } catch (error: any) {
       console.log(error.code);
@@ -19,7 +23,7 @@ const Schedule = () => {
 
   return (
     <>
-      <MyCalendar deleteData={deleteData} />
+      <MyCalendar deleteData={deleteData} updateData={updateData} />
     </>
   );
 };
