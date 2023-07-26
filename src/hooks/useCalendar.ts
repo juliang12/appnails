@@ -5,7 +5,7 @@ import {
   doc,
   onSnapshot,
 } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { bd } from "services/firebase.config";
 
 interface calendarTypes {
@@ -19,12 +19,12 @@ interface calendarTypes {
 
 const useCalendar = () => {
   const [eventList, setEventList] = useState<calendarTypes[]>([]);
+  const [initialLoad, setInitialLoad] = useState(false);
   const ref = collection(bd, "schedule");
 
-  useEffect(() => {
-    getClients();
-  }, []);
-  const getClients = async () => {
+
+  
+  const getClients = useCallback( async () => {
     try {
       await onSnapshot(ref, (snapshot: any) => {
         setEventList(
@@ -39,7 +39,15 @@ const useCalendar = () => {
     } catch (error: any) {
       console.log(error.code);
     }
-  };
+  }, [ref]);
+
+  useEffect(() => {
+      if(!initialLoad){
+        getClients()
+        setInitialLoad(true)
+      }
+    }, [getClients, initialLoad]);
+
   const handleSelect = async ({ start, end }: any) => {
     const client = window.prompt("Agrega una clienta");
 
@@ -56,22 +64,18 @@ const useCalendar = () => {
     }
   };
 
-  const deleteClient = async (e: React.ChangeEvent<HTMLInputElement> | any ) => {
+  const deleteClient = async (e?: React.ChangeEvent<HTMLInputElement> | any ) => {
     const removeEvent: any = eventList.filter((item) => item.id !== e.id);
     const userDoc = await doc(ref, e.id);
     await deleteDoc(userDoc);
     setEventList(removeEvent);
   };
 
-  const deleteAll = async (e:React.ChangeEvent<HTMLInputElement> ) => {
-    console.log({ e });
-  };
 
   return {
     eventList,
     handleSelect,
     deleteClient,
-    deleteAll,
   };
 };
 

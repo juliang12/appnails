@@ -15,13 +15,11 @@ const Login = lazy(() => import("./routes/login/Login"));
 function App() {
   const { stateApp } = useContext(StateContext) as TodoContextProps;
   const { user } = stateApp;
+  console.log(window.location)
   const history = useNavigate();
-  console.log(user);
   useEffect(() => {
     if (!user) {
       history("/login");
-    } else {
-      history("/");
     }
   }, [user]);
 

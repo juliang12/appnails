@@ -1,7 +1,8 @@
-import { Form, Formik } from "formik";
+import { ErrorMessage, Form, Formik } from "formik";
 import useFirebase from "hooks/useFirebase";
 import { Button, TextInput } from "components";
 import style from "./LoginForm.module.css";
+import { SignupSchema } from "utils/validates/LoginValidates";
 
 const initialForm = {
   email: "",
@@ -14,6 +15,7 @@ const LoginForm = () => {
   return (
     <Formik
       initialValues={initialForm}
+      validationSchema={SignupSchema}
       onSubmit={(values) => loginUser(values)}
     >
       {({ values, handleChange, handleSubmit }) => (
@@ -27,6 +29,7 @@ const LoginForm = () => {
               value={values.email}
               onChange={handleChange}
             />
+            <ErrorMessage name="email" render={(msg) => <span className={style.custom}>{msg}</span>}/>
             <TextInput
               label="Password"
               type="password"
@@ -35,6 +38,7 @@ const LoginForm = () => {
               value={values.password}
               onChange={handleChange}
             />
+            <ErrorMessage name="password" render={(msg) => <span className={style.custom}>{msg}</span>}/>
             <Button onSubmit={handleSubmit}>Ingresar</Button>
           </div>
         </Form>

@@ -3,12 +3,12 @@ import {getFirestore} from "@firebase/firestore"
 import { getAuth } from "firebase/auth"
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_API_key,
-  authDomain: "nailsbymel-b5522.firebaseapp.com",
-  projectId: "nailsbymel-b5522",
-  storageBucket: "nailsbymel-b5522.appspot.com",
-  messagingSenderId: "63249946307",
-  appId: "1:63249946307:web:b507fc7f589195474f7476"
+  apiKey: "AIzaSyAmfwSw63wllBsFtj55uho-s_HvyGQFIcs",
+  authDomain: "nails-26e10.firebaseapp.com",
+  projectId: "nails-26e10",
+  storageBucket: "nails-26e10.appspot.com",
+  messagingSenderId: "983178571961",
+  appId: "1:983178571961:web:521d3ef5fc29eacee9eb68"
 };
 
 // Initialize Firebase
